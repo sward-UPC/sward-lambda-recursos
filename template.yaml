@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: SWARD - Lambda procesamiento metadatos recursos educativos
+
+Globals:
+  Function:
+    Timeout: 30
+    Runtime: python3.11
+    Environment:
+      Variables:
+        DATABASE_URL: !Ref DatabaseUrl
+
+Parameters:
+  DatabaseUrl:
+    Type: String
+
+Resources:
+  RecursosFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: handler.lambda_handler
+      Policies:
+        - S3ReadPolicy:
+            BucketName: sward-recursos-educativos
