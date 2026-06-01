@@ -2,9 +2,7 @@
 
 Trigger: S3 ObjectCreated event → actualiza MetadataRecurso
 """
-from unittest.mock import MagicMock, patch
-
-import pytest
+from unittest.mock import patch
 
 from handler import handle_s3_event, _estimar_tiempo, EXTENSION_TIPO_MAP
 
