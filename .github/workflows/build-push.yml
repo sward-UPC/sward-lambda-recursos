@@ -10,5 +10,7 @@ jobs:
     uses: sward-UPC/.github/.github/workflows/build-push-ghcr.yml@main
     with:
       image_name: sward-lambda-recursos
+      service_type: lambda
+      aws_service_name: sward-lambda-recursos
       needs_shared: false
     secrets: inherit
