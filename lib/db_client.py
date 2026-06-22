@@ -4,7 +4,8 @@ from contextlib import contextmanager
 
 
 def _get_db_kwargs() -> dict:
-    """Construye kwargs de conexion psycopg2 en runtime usando Secrets Manager."""
+    """Construye los kwargs de conexion psycopg2 en runtime leyendo las
+    credenciales desde AWS Secrets Manager."""
     host = os.environ.get("DATABASE_HOST", "")
     port = int(os.environ.get("DATABASE_PORT", "5432"))
     name = os.environ.get("DATABASE_NAME", "")
